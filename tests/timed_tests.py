@@ -1,3 +1,4 @@
+from random import shuffle
 from time import monotonic
 
 
@@ -11,6 +12,15 @@ class TimedTestCase:
             (list(range(length)), list(range(length)))
             for length in range(10, 1000, 100)  # already sorted
         ]
+
+        self.shuffled_list_tests = []
+        for length in range(10, 1000, 100):
+            shuffled_list = list(range(length))
+            shuffle(shuffled_list)
+            expected_sorted_list = list(range(length))
+            self.shuffled_list_tests.append(
+                (shuffled_list, expected_sorted_list)
+            )
 
         self.start_time = monotonic()
 
@@ -37,3 +47,6 @@ class TimedSortingTestCase(TimedTestCase):
 
     def test_sorting_already_sorted_lists(self):
         self.call_sorting_tests(self.sorted_list_tests)
+
+    def test_sorting_shuffled_lists(self):
+        self.call_sorting_tests(self.shuffled_list_tests)
