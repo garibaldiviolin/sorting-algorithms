@@ -1,8 +1,8 @@
 from unittest import TestCase
 
-from algorithms.recursive_merge_sort import recursive_merge_sort
+from algorithms.iteractive_merge_sort import iteractive_merge_sort
 from tests.timed_tests import TimedSortingTestCase
 
 
 class IteractiveMergeSortTestCase(TimedSortingTestCase, TestCase):
-    algorithm = staticmethod(recursive_merge_sort)
+    algorithm = staticmethod(iteractive_merge_sort)
