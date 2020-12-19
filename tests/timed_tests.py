@@ -16,7 +16,7 @@ class TimedTestCase:
 
     def tearDown(self):
         t = monotonic() - self.start_time
-        print(f"{self.id()}: {t:.10f}")
+        print(f"{t:.10f}")
 
 
 class TimedSortingTestCase(TimedTestCase):
